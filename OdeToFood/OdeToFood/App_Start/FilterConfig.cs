@@ -7,6 +7,7 @@ namespace OdeToFood
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            // detailed error message
             filters.Add(new HandleErrorAttribute());
         }
     }
