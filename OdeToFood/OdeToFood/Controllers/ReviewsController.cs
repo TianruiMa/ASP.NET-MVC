@@ -9,6 +9,16 @@ namespace OdeToFood.Controllers
 {
     public class ReviewsController : Controller
     {
+//        can also get access by ~/reviews/bestreviews 
+        [ChildActionOnly] // can only get access by calling @Html.Action()
+        public ActionResult BestReview()
+        {
+            var bestReview = from r in _reviews
+                orderby r.Rating descending
+                select r;
+            return PartialView("_Review", bestReview.First());
+        }
+
         // GET: Reviews
         public ActionResult Index()
         {
@@ -52,23 +62,33 @@ namespace OdeToFood.Controllers
         // GET: Reviews/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var review = _reviews.Single(r => r.Id == id);
+
+            return View(review);
         }
 
         // POST: Reviews/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
+            var review = _reviews.Single(r => r.Id == id);
+            if (TryUpdateModel(review))
             {
-                // TODO: Add update logic here
-
+                // save into database
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(review);
+//            try
+//            {
+//                // TODO: Add update logic here
+//
+//                return RedirectToAction("Index");
+//            }
+//            catch
+//            {
+//                return View();
+//            }
         }
 
         // GET: Reviews/Delete/5
@@ -108,6 +128,7 @@ namespace OdeToFood.Controllers
                 Id = 2,
                 Name = "Marrakesh",
                 City = "D.C",
+//                City = "<script>alert('xss');</script>",
                 Country = "USA",
                 Rating = 10
             },
@@ -119,7 +140,6 @@ namespace OdeToFood.Controllers
                 Country = "Belgium",
                 Rating = 10
             }
-            
         };
     }
 }

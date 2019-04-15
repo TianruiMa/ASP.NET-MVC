@@ -18,14 +18,15 @@ namespace OdeToFood.Controllers
         //}
 
 
-        //[Authorize]  // user has to be logged in, or will be redirect to the login page
+//        [Authorize]  // user has to be logged in, or will be redirect to the login page
         //[Authorize(Roles = "Admin")] // loggin as Admin role
 
         //[HttpGet]  // can be only invoked by doing http post message
         
-        [Log]
+        [Log]  // 
         public ActionResult Search(string name = "french") // adding a parameter
         {
+            // HTML encoding makes sure that text is displayed correctly in the browser and not interpreted by the browser as HTML
             // preventing malicious code
             var message = Server.HtmlEncode(name);
 
