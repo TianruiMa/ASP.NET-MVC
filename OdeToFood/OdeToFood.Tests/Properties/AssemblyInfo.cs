@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OdeToFood")]
+[assembly: AssemblyTitle("OdeToFood.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OdeToFood")]
+[assembly: AssemblyProduct("OdeToFood.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d7ae8832-aeec-43d6-ad38-33d83de74baa")]
+[assembly: Guid("55cad3b7-e3b9-45d8-a75b-60756c69e9dc")]
 
 // Version information for an assembly consists of the following four values:
 //
